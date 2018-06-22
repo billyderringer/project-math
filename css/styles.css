@@ -52,14 +52,26 @@ html{
     background-color: var(--darkGrey);
 }
 
+.operation i{
+    font-size: 60pt;
+    color: var(--green);
+}
+
 .operation-all{
     width: 320px;
     height: 75px;
     margin-top: 10px;
     background-color: var(--darkGrey);
+    color: var(--green);
 }
 
 /*Shared*/
+
+.center-all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .logo-project{
     font-family: 'Pacifico', cursive;
