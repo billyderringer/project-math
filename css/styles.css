@@ -1,10 +1,12 @@
 /*Variables*/
 :root{
     /*Colors*/
-    --offBlack: #353744;
-    --darkGrey: #5e6170;
+    --offBlack: #242632;
+    --darkGrey: #4b4e5d;
     --white: #fff;
     --green: #3ADE76;
+    --red: #ff0000;
+    --greyGradient: linear-gradient(-45deg, #494C5D, #6B7485);
 
     /*Fonts*/
     --primaryFont: Arial, "Helvetica Neue", Helvetica, sans-serif;
