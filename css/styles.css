@@ -1,13 +1,3 @@
-/*Global Styles*/
-body, html, div, h1, h2, h3, h4, h5, h6, p{
-    margin: 0;
-    padding: 0;
-}
-
-html{
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-
 /*Variables*/
 :root{
     /*Colors*/
@@ -15,6 +5,24 @@ html{
     --darkGrey: #5e6170;
     --white: #fff;
     --green: #3ADE76;
+
+    /*Fonts*/
+    --primaryFont: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    --secondaryFont: 'Pacifico', cursive;
+}
+
+/*Global Styles*/
+body, html, div, h1, h2, h3, h4, h5, h6, p, a{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: var(--primaryFont);
+}
+
+a{
+    text-decoration: none;
 }
 
 /*Shared*/
@@ -24,15 +32,27 @@ html{
     align-items: center;
 }
 
+.grow{
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    z-index: 999;
+}
+
 .logo{
     font-size: 2.5em;
     color: var(--green);
 }
 
 .logo-project{
-    font-family: 'Pacifico', cursive;
+    font-family: var(--secondaryFont);
     color: var(--darkGrey);
 }
+
+
 
 /*Home Screen*/
 #container-main{
