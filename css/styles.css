@@ -1,0 +1,71 @@
+
+:root{
+    /*Colors*/
+    --offBlack: #353744;
+    --darkGrey: #5e6170;
+    --white: #fff;
+    --green: #3ADE76;
+}
+
+
+body, html, div, h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/*Fonts*/
+
+
+
+#container-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--offBlack);
+}
+
+#choice-description{
+    margin: 10px 0;
+    color: var(--white);
+}
+
+/*Home Screen*/
+#operation-choices{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+}
+
+.operation{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: var(--darkGrey);
+}
+
+.operation-all{
+    width: 320px;
+    height: 75px;
+    margin-top: 10px;
+    background-color: var(--darkGrey);
+}
+
+/*Shared*/
+
+.logo-project{
+    font-family: 'Pacifico', cursive;
+    color: var(--darkGrey);
+}
+
+.logo-math{
+    color: var(--green);
+}
