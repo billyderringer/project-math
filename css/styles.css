@@ -81,8 +81,8 @@ a{
 }
 
 .operation{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin: 10px;
     background-color: var(--darkGrey);
 }
@@ -93,7 +93,7 @@ a{
 }
 
 .operation-all{
-    width: 420px;
+    width: 320px;
     height: 75px;
     margin-top: 10px;
     background-color: var(--darkGrey);
