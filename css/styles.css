@@ -1,13 +1,4 @@
-
-:root{
-    /*Colors*/
-    --offBlack: #353744;
-    --darkGrey: #5e6170;
-    --white: #fff;
-    --green: #3ADE76;
-}
-
-
+/*Global Styles*/
 body, html, div, h1, h2, h3, h4, h5, h6, p{
     margin: 0;
     padding: 0;
@@ -17,10 +8,33 @@ html{
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-/*Fonts*/
+/*Variables*/
+:root{
+    /*Colors*/
+    --offBlack: #353744;
+    --darkGrey: #5e6170;
+    --white: #fff;
+    --green: #3ADE76;
+}
 
+/*Shared*/
+.center-all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.logo{
+    font-size: 2.5em;
+    color: var(--green);
+}
 
+.logo-project{
+    font-family: 'Pacifico', cursive;
+    color: var(--darkGrey);
+}
+
+/*Home Screen*/
 #container-main{
     display: flex;
     flex-direction: column;
@@ -35,8 +49,7 @@ html{
     color: var(--white);
 }
 
-/*Home Screen*/
-#operation-choices{
+#container-operations{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -46,8 +59,8 @@ html{
 }
 
 .operation{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     margin: 10px;
     background-color: var(--darkGrey);
 }
@@ -58,26 +71,9 @@ html{
 }
 
 .operation-all{
-    width: 320px;
+    width: 420px;
     height: 75px;
     margin-top: 10px;
     background-color: var(--darkGrey);
-    color: var(--green);
-}
-
-/*Shared*/
-
-.center-all{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-project{
-    font-family: 'Pacifico', cursive;
-    color: var(--darkGrey);
-}
-
-.logo-math{
     color: var(--green);
 }
