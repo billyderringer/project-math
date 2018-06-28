@@ -14,10 +14,7 @@
 }
 
 /*Global Styles*/
-body, html, div, h1, h2, h3, h4, h5, h6, p, a{
-    margin: 0;
-    padding: 0;
-}
+
 
 html{
     font-family: var(--primaryFont);
@@ -57,7 +54,7 @@ a{
 
 
 /*Home Screen*/
-#container-main{
+.container-main{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,4 +95,24 @@ a{
     margin-top: 10px;
     background-color: var(--darkGrey);
     color: var(--green);
+}
+
+#left-col{
+    width: 25%;
+    height: 100%;
+    background-color: var(--offBlack);
+    display: inline-block;
+}
+
+#right-col{
+    width: 70%;
+    height: 100%;
+    background-color: var(--green);
+    display: inline-block;
+
+}
+
+.container-two{
+    height: 100vh;
+    max-width: 100vw;
 }
