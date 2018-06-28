@@ -1,0 +1,10 @@
+{
+  "name": "project-math",
+  "version": "0.0.1",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "local-web-server": "^2.5.2"
+  }
+}

@@ -77,27 +77,76 @@ a{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 500px;
+    width: 30vw;
 }
 
 .operation{
-    width: 150px;
-    height: 150px;
-    margin: 10px;
+    width: 10vw;
+    height: 10vw;
+    margin: 1vw;
     background-color: var(--darkGrey);
 }
 
 .operation i{
-    font-size: 60pt;
+    font-size: 7vw;
     color: var(--green);
 }
 
 .operation-all{
-    width: 320px;
-    height: 75px;
+    width: 22vw;
+    height: 5vw;
     margin-top: 10px;
     background-color: var(--darkGrey);
     color: var(--green);
+}
+
+/*Home Screen Breakpoints*/
+/*Phone*/
+@media screen and (max-width: 576px) {
+    #container-operations{
+        width: 90vw;
+    }
+
+    #choice-description{
+        margin: 10px;
+        text-align: center;
+    }
+
+    .operation{
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .operation i{
+        font-size: 25vw;
+    }
+
+    .operation-all{
+        width: 82vw;
+        height: 20vw;
+    }
+}
+
+/*Tablet*/
+@media screen and (min-width: 577px) and (max-width: 991px) {
+    #container-operations{
+        width: 50vw;
+    }
+
+    .operation{
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .operation-all{
+        width: 42vw;
+        height: 10vw;
+    }
+}
+
+/*Desktop*/
+@media screen and (max-width: 992px) {
+
 }
 
 /*Screen Two*/
@@ -120,3 +169,21 @@ a{
     display: inline-block;
     margin-left:-5px;
 }
+
+/*Screen Two Breakpoints*/
+/*Phone*/
+@media screen and (max-width: 576px) {
+
+}
+
+/*Tablet*/
+@media screen and (min-width: 577px) and (max-width: 991px) {
+
+}
+
+/*Desktop*/
+@media screen and (max-width: 992px) {
+
+}
+
+/**/
