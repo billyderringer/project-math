@@ -153,21 +153,19 @@ a{
 .container-two{
     height: 100vh;
     max-width: 100vw;
+    display: flex;
 }
 
 #left-col{
     width: 25%;
     height: 100%;
     background-color: var(--offBlack);
-    display: inline-block;
 }
 
 #right-col{
     width: 75%;
     height: 100%;
     background-color: var(--green);
-    display: inline-block;
-    margin-left:-5px;
 }
 
 /*Screen Two Breakpoints*/
