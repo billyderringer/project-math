@@ -54,10 +54,8 @@ a{
     color: var(--darkGrey);
 }
 
-
-
 /*Home Screen*/
-.container-main{
+.container-operation{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -183,5 +181,3 @@ a{
 @media screen and (max-width: 992px) {
 
 }
-
-/**/
