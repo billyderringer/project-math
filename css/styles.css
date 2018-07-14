@@ -147,8 +147,8 @@ a{
 
 }
 
-/*Screen Two*/
-.container-two{
+/*Difficulty*/
+.container-difficulty{
     height: 100vh;
     max-width: 100vw;
     display: flex;
@@ -158,12 +158,29 @@ a{
     width: 25%;
     height: 100%;
     background-color: var(--offBlack);
+    flex-direction: column;
+}
+
+#left-col #difficulty-description{
+    margin-top: 10px;
+    color: var(--white);
+    font-size: 1.5em;
 }
 
 #right-col{
     width: 75%;
     height: 100%;
-    background-color: var(--green);
+    flex-direction: column;
+}
+
+#right-col .difficulty-button{
+    background-color: var(--offBlack);
+    color: var(--green);
+    font-size: 60px;
+    padding: 30px 50px;
+    margin: 10px 0;
+    width: 35vw;
+    text-align: center;
 }
 
 /*Screen Two Breakpoints*/
