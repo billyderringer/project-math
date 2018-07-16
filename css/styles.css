@@ -54,7 +54,12 @@ a{
     color: var(--darkGrey);
 }
 
-/*Home Screen*/
+.green-word{
+    color: var(--green);
+}
+
+/*****************************************************************/
+/*Operation Screen*/
 .container-operation{
     display: flex;
     flex-direction: column;
@@ -98,7 +103,7 @@ a{
     color: var(--green);
 }
 
-/*Home Screen Breakpoints*/
+/*Operation Screen Breakpoints*/
 /*Phone*/
 @media screen and (max-width: 576px) {
     #container-operations{
@@ -147,7 +152,8 @@ a{
 
 }
 
-/*Difficulty*/
+/*****************************************************************/
+/*Difficulty Screen*/
 .container-difficulty{
     height: 100vh;
     max-width: 100vw;
@@ -183,7 +189,61 @@ a{
     text-align: center;
 }
 
-/*Screen Two Breakpoints*/
+/*Difficulty Screen Breakpoints*/
+/*Phone*/
+@media screen and (max-width: 576px) {
+
+}
+
+/*Tablet*/
+@media screen and (min-width: 577px) and (max-width: 991px) {
+
+}
+
+/*Desktop*/
+@media screen and (max-width: 992px) {
+
+}
+
+/*****************************************************************/
+/*Test Screen*/
+.container-test-frame{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--offBlack);
+    flex-direction: column;
+}
+
+.container-test-frame h1{
+    margin-bottom: 20px;
+}
+
+.container-test{
+    height: 70vh;
+    width: 80vw;
+    background: var(--greyGradient);
+    flex-direction: column;
+}
+
+.container-test #test-title{
+    color: var(--white);
+    font-weight: 100;
+}
+
+.container-test #test-numbers{
+    flex-direction: row;
+}
+
+.container-test #test-numbers .correct-answer{
+    color: var(--green);
+}
+
+.container-test #test-numbers .incorrect-answer{
+    color: var(--red);
+}
+
+
+/*Test Screen Breakpoints*/
 /*Phone*/
 @media screen and (max-width: 576px) {
 

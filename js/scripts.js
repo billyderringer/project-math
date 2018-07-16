@@ -2,23 +2,27 @@ let state = {
     stage: "operation",
     operation: "",
     difficulty: "",
-    correct: "",
     num1: "",
     num2: "",
-    testQuestions: []
+    correct: "",
+    count: 0,
+    grade: "",
+    userAttempt: "",
+    answer: "",
+    answerResponse: ""
 }
 
 const main = document.getElementById('container-main')
 
 const operation = `
-<div class="container-operation">
+<section class="container-operation">
             <h1 class="logo">
                 <span class="logo-project">Project</span> MATH
             </h1>
             <p id="choice-description">
                 Please choose the operation that you would like to test on
             </p>
-            <div id="container-operations">
+            <section id="container-operations">
                 <a href="#"
                    onclick="setOperationState('+')"
                    class="operation center-all grow">
@@ -54,13 +58,13 @@ const operation = `
                         <p><strong>Master Class</strong> (All Operations)</p>
                     </div>
                 </a>
-            </div>
-        </div>
+            </section>
+        </section>
 `
 
 const difficulty = `
-    <div class="container-difficulty">
-            <div id="left-col"
+    <section class="container-difficulty">
+            <section id="left-col"
                  class="center-all">
                 <h1 class="logo">
                     <span class="logo-project">Project</span> MATH
@@ -68,31 +72,57 @@ const difficulty = `
                 <p id="difficulty-description">
                     Now choose a<br/>difficulty level
                 </p>
-            </div>
-            <div id="right-col"
+            </section>
+            <section id="right-col"
                  class="center-all">
-                <a class="difficulty-button"
+                <a class="difficulty-button grow"
                    onclick="setDifficultyState('beginner')"
                    href="#">
                     Beginner</a>
-                <a class="difficulty-button"
+                <a class="difficulty-button grow"
                    onclick="setDifficultyState('intermediate')"
                    href="#">
                     Intermediate</a>
-                <a class="difficulty-button"
+                <a class="difficulty-button grow"
                    onclick="setDifficultyState('advanced')"
                    href="#">
                     Advanced</a>
-            </div>
-        </div>
+            </section>
+        </section>
 `
 
 const runTest = `
-    <div>
-        test run test
-    </div>
+    <section class="container-test-frame center-all">
+        <h1 class="logo">
+            <span class="logo-project">Project</span> MATH
+        </h1>
+        <section class="container-test center-all">
+            <h2 id="test-title">
+            <span id="difficulty-title" 
+                  class="green-word"></span> 
+                  level 
+            <span id="operation-title" 
+                  class="green-word"></span>
+                  test
+            </h2>
+            
+            <section id="test-numbers" 
+                 class="center-all">
+                <h2 id="test-num-one"></h2>
+                <h2 id="test-operation"></h2>
+                <h2 id="test-num-two"></h2>
+            </section>       
+            <form onsubmit="checkAnswer()">
+            <label for="answer">Answer</label>
+                <input id="answer" type="text" name="answer">
+                <input type="submit" value="Submit">
+            </form>  
+                
+        </section>
+    </section>
 `
 
+//determines HTML to render to dom via template string
 function runStageCheck(){
     if(state.stage === "operation"){
         main.innerHTML = operation
@@ -100,71 +130,108 @@ function runStageCheck(){
         main.innerHTML = difficulty
     }else if (state.stage === "run-test"){
         main.innerHTML = runTest
+        console.log(state.count)
+        runTestCheck()
+        console.log(state.count)
     }
 }
 
+//chooses operation then sets stage to difficulty
 function setOperationState (operation) {
-    if(operation === '+'){
-        state.operation = '+'
-        sessionStorage.setItem('operation', '+')
-    }else if(operation === '-'){
-        state.operation = '-'
-        sessionStorage.setItem('operation', '-')
-    }else if(operation === '*'){
-        state.operation = '*'
-        sessionStorage.setItem('operation', '*')
-    }else if(operation === '/'){
-        state.operation = '/'
-        sessionStorage.setItem('operation', '/')
-    }else if(operation === 'all-operations'){
-        state.operation = 'all-operations'
-        sessionStorage.setItem('operation', 'all-operations')
-    }
+    state.operation = operation
     state.stage = 'difficulty'
     runStageCheck()
 }
 
+//chooses difficulty then sets stage to run-test
 function setDifficultyState (difficulty) {
-    if(difficulty === 'beginner'){
-        state.difficulty = 'beginner'
-        sessionStorage.setItem('difficulty', 'beginner')
-    }else if(difficulty === 'intermediate'){
-        state.difficulty = 'intermediate'
-        sessionStorage.setItem('difficulty', 'intermediate')
-    }else if(difficulty === 'advanced'){
-        state.difficulty = 'advanced'
-        sessionStorage.setItem('difficulty', 'advanced')
-    }
+    state.difficulty = difficulty
     state.stage = 'run-test'
-    createTestArray()
     runStageCheck()
-    console.log(state.testQuestions)
 }
 
+function getTestContent() {
+    //set title HTML
+    const operationTitle = document.getElementById('operation-title')
+    let operation = state.operation
+    if(operation === '+'){
+        operationTitle.innerText =  'ADDITION'
+    }else if(operation === '-'){
+        operationTitle.innerText =  'SUBTRACTION'
+    }else if(operation === '*'){
+        operationTitle.innerText =  'MULTIPLICATION'
+    }else if(operation === '/'){
+        operationTitle.innerText =  'DIVISION'
+    }
+    let difficultyTitle = document.getElementById('difficulty-title')
+    difficultyTitle.innerText = state.difficulty.toUpperCase()
+
+    //set question HTML
+    let testNum1 = document.getElementById('test-num-one')
+    let testNum2 = document.getElementById('test-num-two')
+    let testOperation = document.getElementById('test-operation')
+    testNum1.innerText = state.num1
+    testNum2.innerText = state.num2
+    testOperation.innerText = state.operation
+}
+
+
+//test page logic
 function getRandomNum(min, max) {
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min)) + min
 }
 
-function createQuestion() {
+function setRandomNum (){
     if(state.difficulty === 'beginner'){
-        sessionStorage.setItem('num1', getRandomNum(1, 10))
-        sessionStorage.setItem('num2', getRandomNum(1, 10))
+        state.num1 = getRandomNum(1, 10)
+        state.num2 = getRandomNum(1, 10)
+        state.answer = eval(state.num1 + state.operation + state.num2)
     }else if(state.difficulty === 'intermediate'){
-        sessionStorage.setItem('num1', getRandomNum(10, 100))
-        sessionStorage.setItem('num2', getRandomNum(1, 10))
+        state.num1 = getRandomNum(10, 100)
+        state.num2 = getRandomNum(1, 10)
+        state.answer = eval(state.num1 + state.operation + state.num2)
     }else if(state.difficulty === 'advanced'){
-        sessionStorage.setItem('num1', getRandomNum(10, 100))
-        sessionStorage.setItem('num2', getRandomNum(10, 100))
+        state.num1 = getRandomNum(10, 100)
+        state.num2 = getRandomNum(10, 100)
+        state.answer = eval(state.num1 + state.operation + state.num2)
     }
 }
 
-function createTestArray() {
-   for(let i=0;i<10;i++){
-       createQuestion()
-    state.testQuestions.push([sessionStorage.getItem('num1'),sessionStorage.getItem('num2')])
-   }
+function getAnswer() {
+    let answer = eval(state.num1 + state.operation + state.num2)
+    return answer
+}
+
+function checkAnswer() {
+    let userAnswer = parseInt(document.getElementById('answer').value)
+    let answerField = document.getElementById('test-numbers')
+    console.log(userAnswer)
+    console.log(state.answer)
+    if (userAnswer === state.answer){
+        answerField.innerHTML = `
+            <h2 class="correct-answer">Correct!</h2>  
+        `
+        state.stage = 'run-test'
+        runStageCheck()
+    }else {
+        answerField.innerHTML = `
+            <h2 class="incorrect-answer">Incorrect</h2>  
+        `
+        state.stage = 'run-test'
+        runStageCheck()
+    }
+}
+
+function runTestCheck() {
+    if(state.count < 10){
+        setRandomNum()
+        getTestContent()
+        state.count++
+    }else{
+        state.stage = state.grade
+    }
 }
 
 runStageCheck()
