@@ -104,15 +104,19 @@ const runTest = `
                 <h2 id="test-operation"></h2>
                 <h2 id="test-num-two"></h2>
             </section>       
-            <form onsubmit="checkAnswer()">
+            <form onsubmit="checkAnswer(event)">
                 <label for="answer">Answer</label>
                 <input id="answer" 
                        type="text" 
                        name="answer">
-                <input id="answer-button" 
+                <input class="test-button" 
                        type="submit" 
                        value="Check Answer">
-            </form>                  
+            </form>     
+            <input class="test-button" 
+                   type="button" 
+                   value="Next Question" 
+                   onclick="runStageCheck()">             
         </section>
     </section>
 `
@@ -126,6 +130,13 @@ function runStageCheck(){
     }else if (state.stage === "run-test"){
         main.innerHTML = runTest
         setTest()
+    }else if (state.stage === "reset-question"){
+        let testNum1 = document.getElementById('test-num-one')
+        let testNum2 = document.getElementById('test-num-two')
+        let testOperation = document.getElementById('test-operation')
+        testNum1.innerText = state.num1
+        testNum2.innerText = state.num2
+        testOperation.innerText = state.operation
     }
 }
 
@@ -192,36 +203,31 @@ function setRandomNum (){
     }
 }
 
-function getAnswer() {
-    let answer = eval(state.num1 + state.operation + state.num2)
-    return answer
-}
-
-function checkAnswer() {
+function checkAnswer(event) {
     let userAnswer = parseInt(document.getElementById('answer').value)
     let answerField = document.getElementById('test-numbers')
     if (userAnswer === state.answer){
         answerField.innerHTML = `
             <h2 class="correct-answer">Correct!</h2>  
         `
-        setTimeout(function() {
-            state.stage = 'operation'
-            runStageCheck()
-        }, 2000)
+        state.stage === 'reset-question'
     }else {
         answerField.innerHTML = `
             <h2 class="incorrect-answer">Incorrect</h2>  
         `
-        setTimeout(function() {
-            state.stage = 'operation'
-            runStageCheck()
-        }, 2000)
+        state.stage === 'reset-question'
     }
+    event.preventDefault()
 }
 
 function setTest() {
     setRandomNum()
     getTestContent()
+    state.count++
+}
+
+function resetQuestion() {
+    runStageCheck()
 }
 
 runStageCheck()
