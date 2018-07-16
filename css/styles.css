@@ -167,6 +167,10 @@ a{
     flex-direction: column;
 }
 
+#left-col #difficulty-logo{
+    text-align: center;
+}
+
 #left-col #difficulty-description{
     margin-top: 10px;
     color: var(--white);
@@ -232,6 +236,13 @@ a{
 
 .container-test #test-numbers{
     flex-direction: row;
+    margin: 50px 0;
+}
+
+.container-test #test-numbers h2{
+    color: var(--green);
+    font-size: 7em;
+    margin: 0 15px;
 }
 
 .container-test #test-numbers .correct-answer{
@@ -240,6 +251,13 @@ a{
 
 .container-test #test-numbers .incorrect-answer{
     color: var(--red);
+}
+
+.container-test form #answer-button{
+    border: none;
+    background-color: var(--offBlack);
+    color: var(--green);
+    padding: 3px 7px;
 }
 
 

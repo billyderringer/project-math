@@ -6,10 +6,8 @@ let state = {
     num2: "",
     correct: "",
     count: 0,
-    grade: "",
     userAttempt: "",
-    answer: "",
-    answerResponse: ""
+    answer: ""
 }
 
 const main = document.getElementById('container-main')
@@ -51,13 +49,6 @@ const operation = `
                         <i class="fas fa-divide"></i>
                     </div>
                 </a>
-                <a href="#"
-                   onclick="setOperationState('all-operations')"
-                   class="operation-all center-all grow">
-                    <div>
-                        <p><strong>Master Class</strong> (All Operations)</p>
-                    </div>
-                </a>
             </section>
         </section>
 `
@@ -66,7 +57,8 @@ const difficulty = `
     <section class="container-difficulty">
             <section id="left-col"
                  class="center-all">
-                <h1 class="logo">
+                <h1 id="difficulty-logo"
+                    class="logo">
                     <span class="logo-project">Project</span> MATH
                 </h1>
                 <p id="difficulty-description">
@@ -107,17 +99,20 @@ const runTest = `
             </h2>
             
             <section id="test-numbers" 
-                 class="center-all">
+                     class="center-all">
                 <h2 id="test-num-one"></h2>
                 <h2 id="test-operation"></h2>
                 <h2 id="test-num-two"></h2>
             </section>       
             <form onsubmit="checkAnswer()">
-            <label for="answer">Answer</label>
-                <input id="answer" type="text" name="answer">
-                <input type="submit" value="Submit">
-            </form>  
-                
+                <label for="answer">Answer</label>
+                <input id="answer" 
+                       type="text" 
+                       name="answer">
+                <input id="answer-button" 
+                       type="submit" 
+                       value="Check Answer">
+            </form>                  
         </section>
     </section>
 `
@@ -130,9 +125,7 @@ function runStageCheck(){
         main.innerHTML = difficulty
     }else if (state.stage === "run-test"){
         main.innerHTML = runTest
-        console.log(state.count)
-        runTestCheck()
-        console.log(state.count)
+        setTest()
     }
 }
 
@@ -207,31 +200,28 @@ function getAnswer() {
 function checkAnswer() {
     let userAnswer = parseInt(document.getElementById('answer').value)
     let answerField = document.getElementById('test-numbers')
-    console.log(userAnswer)
-    console.log(state.answer)
     if (userAnswer === state.answer){
         answerField.innerHTML = `
             <h2 class="correct-answer">Correct!</h2>  
         `
-        state.stage = 'run-test'
-        runStageCheck()
+        setTimeout(function() {
+            state.stage = 'operation'
+            runStageCheck()
+        }, 2000)
     }else {
         answerField.innerHTML = `
             <h2 class="incorrect-answer">Incorrect</h2>  
         `
-        state.stage = 'run-test'
-        runStageCheck()
+        setTimeout(function() {
+            state.stage = 'operation'
+            runStageCheck()
+        }, 2000)
     }
 }
 
-function runTestCheck() {
-    if(state.count < 10){
-        setRandomNum()
-        getTestContent()
-        state.count++
-    }else{
-        state.stage = state.grade
-    }
+function setTest() {
+    setRandomNum()
+    getTestContent()
 }
 
 runStageCheck()
