@@ -217,16 +217,18 @@ function checkAnswer(event) {
         `
         state.stage === 'reset-question'
     }
+
     event.preventDefault()
 }
 
 function setTest() {
     setRandomNum()
     getTestContent()
-    state.count++
 }
 
+//**********Need to add count logic here
 function resetQuestion() {
+    state.count++
     runStageCheck()
 }
 
