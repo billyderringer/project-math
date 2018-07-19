@@ -112,11 +112,15 @@ const runTest = `
                 <input class="test-button" 
                        type="submit" 
                        value="Check Answer">
-            </form>     
-            <input class="test-button" 
-                   type="button" 
-                   value="Next Question" 
-                   onclick="runStageCheck()">             
+                <input class="test-button" 
+                       type="button" 
+                       value="Next Question" 
+                       onclick="runStageCheck()"> 
+                <input class="test-button" 
+                       type="button" 
+                       value="Home" 
+                       onclick="resetTest()"> 
+            </form>                 
         </section>
     </section>
 `
@@ -229,6 +233,11 @@ function setTest() {
 //**********Need to add count logic here
 function resetQuestion() {
     state.count++
+    runStageCheck()
+}
+
+function resetTest() {
+    state.stage = 'operation'
     runStageCheck()
 }
 
