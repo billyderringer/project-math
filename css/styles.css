@@ -155,7 +155,7 @@ a{
 }
 
 /*Desktop*/
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 992px) {
 
 }
 
@@ -203,17 +203,43 @@ a{
 /*Difficulty Screen Breakpoints*/
 /*Phone*/
 @media screen and (max-width: 576px) {
-
+    .container-difficulty{
+        flex-direction: column;
+    }
+    #left-col{
+        display: none;
+    }
+    #mobile-row{
+        text-align: center;
+        margin-bottom: 15px;
+        padding: 15px 0;
+        background-color: var(--offBlack);
+    }
+    #mobile-row p{
+        color: var(--white);
+    }
+    #right-col{
+        width: 100%;
+    }
+    #right-col .difficulty-button{
+        width: 70vw;
+        font-size: 40px;
+        padding: 25px 40px;
+    }
 }
 
 /*Tablet*/
 @media screen and (min-width: 577px) and (max-width: 991px) {
-
+    #mobile-row{
+        display: none;
+    }
 }
 
 /*Desktop*/
-@media screen and (max-width: 992px) {
-
+@media screen and (min-width: 992px) {
+    #mobile-row{
+        display: none;
+    }
 }
 
 /*****************************************************************/
@@ -260,10 +286,28 @@ a{
     color: var(--red);
 }
 
+.container-test-frame form #input-row{
+    margin-bottom: 10px;
+}
+
+.container-test-frame form input{
+    padding: 7px 10px;
+}
+
+.container-test-frame form input:hover{
+    cursor: pointer;
+}
+
 /*Test Screen Breakpoints*/
 /*Phone*/
 @media screen and (max-width: 576px) {
-
+    .container-test #test-title{
+        font-size: .85em;
+        font-weight: 400;
+    }
+    .container-test #test-numbers h2{
+        font-size: 4em;
+    }
 }
 
 /*Tablet*/
@@ -272,6 +316,8 @@ a{
 }
 
 /*Desktop*/
-@media screen and (max-width: 992px) {
-
+@media screen and (min-width: 992px) {
+    .container-test{
+        width: 40vw;
+    }
 }

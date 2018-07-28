@@ -65,6 +65,15 @@ const difficulty = `
                     Now choose a<br/>difficulty level
                 </p>
             </section>
+            <section id="mobile-row">
+                    <h1 id="difficulty-logo"
+                        class="logo">
+                        <span class="logo-project">Project</span> MATH
+                    </h1>
+                    <p id="difficulty-description">
+                        Now choose a<br/>difficulty level
+                    </p>
+            </section>
             <section id="right-col"
                  class="center-all">
                 <a class="difficulty-button grow"
@@ -105,21 +114,26 @@ const runTest = `
                 <h2 id="test-num-two"></h2>
             </section>       
             <form onsubmit="checkAnswer(event)">
-                <label for="answer">Answer</label>
-                <input id="answer" 
-                       type="text" 
-                       name="answer">
-                <input class="test-button" 
-                       type="submit" 
-                       value="Check Answer">
-                <input class="test-button" 
-                       type="button" 
-                       value="Next Question" 
-                       onclick="runStageCheck()"> 
-                <input class="test-button" 
-                       type="button" 
-                       value="Home" 
-                       onclick="resetTest()"> 
+                <div id="input-row" 
+                     class="center-all">
+                       <input id="answer" 
+                              type="text" 
+                              name="answer">
+                </div>
+ 
+                <div>
+                       <input class="test-button" 
+                              type="submit" 
+                              value="Check Answer">
+                       <input class="test-button" 
+                              type="button" 
+                              value="Next Question" 
+                              onclick="runStageCheck()"> 
+                       <input class="test-button" 
+                              type="button" 
+                              value="Home" 
+                              onclick="resetTest()">
+                </div>
             </form>                 
         </section>
     </section>
@@ -236,6 +250,7 @@ function resetQuestion() {
     runStageCheck()
 }
 
+//go back to home screen
 function resetTest() {
     state.stage = 'operation'
     runStageCheck()
