@@ -248,12 +248,6 @@ function setTest() {
     getTestContent()
 }
 
-//**********Need to add count logic here
-function resetQuestion() {
-    state.count++
-    runStageCheck()
-}
-
 //go back to home screen
 function resetTest() {
     state.stage = 'operation'
