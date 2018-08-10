@@ -10,8 +10,11 @@ let state = {
     answer: ""
 }
 
+//#container-main will rerender according to the stage
+//the app is currently assigned
 const main = document.getElementById('container-main')
 
+//3 stages operation/difficulty/runTest
 const operation = `
 <section class="container-operation">
             <h1 class="logo">
@@ -205,6 +208,7 @@ function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min
 }
 
+//get numbers based on difficulty
 function setRandomNum (){
     if(state.difficulty === 'beginner'){
         state.num1 = getRandomNum(1, 10)
